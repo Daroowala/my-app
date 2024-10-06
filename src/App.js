@@ -3,7 +3,7 @@ import './App.css';
 function App() {
   return (
     <>
-<Navbar/>
+<Navbar title='TextUtils' aboutus='About Us'/>
     </>
   );
 }
