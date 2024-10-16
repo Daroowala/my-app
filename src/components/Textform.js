@@ -13,22 +13,36 @@ export default function Textform(props) {
     setText(newText)
   };
 
+  const colorChange = () => {
+    //console.log("Color Change" + text);
+    let newColor = color === 'black'? 'red' : 'black';
+    setColor(newColor)
+  };
+
   const handlOnChange = (event) => {
     //console.log("handleOnChange");
     setText(event.target.value)
   }
+  
   const [text, setText] = useState('Enter text here');
   // setText("New Text");
+ 
+  const [color, setColor] = useState('black');
 
+  
   return (
     <>
     <div className='container'>
         <h2>{props.heading}</h2>
         <div className="mb-3">
-        <textarea className="form-control" onChange={handlOnChange} value={text} id="myBox" rows="8"></textarea>
+        <textarea className="form-control" onChange={handlOnChange} value={text} id="myBox" rows="8" style={{ color: color }}></textarea>
         </div>
         <button onClick={handlUpClick}  className="btn btn-primary my-3">Convert to upper case</button>
         <button onClick={handlLoClick}  className="btn btn-primary mx-3">Convert to lower case</button>
+        <button onClick={colorChange}  className="btn btn-primary mx-3">Color change</button>
+
+
+
 
     </div>
 
@@ -41,5 +55,6 @@ export default function Textform(props) {
     </div>
     </>
   )
-}
+};
+
 
